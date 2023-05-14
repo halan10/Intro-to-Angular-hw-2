@@ -1,0 +1,10 @@
+<div *ngIf="tasks.length == 0" class="text-center">
+  <img
+    src="https://cdn.dribbble.com/users/1753953/screenshots/3818675/animasi-emptystate.gif"
+    alt="No Items"
+  />
+  <p>No elements!</p>
+</div>
+
+<app-actual-task *ngFor="let t of tasks" [task]="t"></app-actual-task>
+<p class="text-center">Count: {{ tasks.length }}</p>

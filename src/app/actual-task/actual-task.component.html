@@ -1,0 +1,13 @@
+<ul>
+  <li>
+    <input type="checkbox" name="status" [checked]="task.status" />
+
+    <span *ngIf="!task.priority"></span>
+    <span *ngIf="task.priority"><span class="priority">&#10149;</span></span>
+    <span *ngIf="!task.status"> {{ task.name }} </span>
+    <span *ngIf="task.status"
+      ><del class="task_comlete"> {{ task.name }} </del></span
+    >
+    <span class="deadline"> {{ task.deadline | date : "shortDate" }}</span>
+  </li>
+</ul>
