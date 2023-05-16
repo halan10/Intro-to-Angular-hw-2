@@ -12,7 +12,11 @@ export class ActualTaskComponent {
   task: ITask = {
   status:  false,
   priority: true,
-  name:  "Sport",
-  deadline:  new Date (2023,8,30)
+  name:  "",
+  deadline:  new Date ()
     }
+  
+  onCheckboxClick(event: any) {
+    this.task.status = event.target.checked;
+}
 }

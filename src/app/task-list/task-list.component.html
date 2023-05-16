@@ -1,4 +1,4 @@
-<div *ngIf="tasks.length == 0" class="text-center">
+<div *ngIf="tasks.length == 0; else elseBlock" class="text-center">
   <img
     src="https://cdn.dribbble.com/users/1753953/screenshots/3818675/animasi-emptystate.gif"
     alt="No Items"
@@ -6,5 +6,33 @@
   <p>No elements!</p>
 </div>
 
-<app-actual-task *ngFor="let t of tasks" [task]="t"></app-actual-task>
-<p class="text-center">Count: {{ tasks.length }}</p>
+<ng-template #elseBlock>
+  <p>* Double click on task to delete</p>
+  <button (click)="sort_by_priority()">Sort by Priority</button>
+  <button (click)="sort_by_status()">Sort by Status</button>
+  <div class="text-center">
+    <input
+      type="search"
+      class="search"
+      [(ngModel)]="searchText"
+      placeholder="Search..."
+    />
+  </div>
+  <app-actual-task
+    *ngFor="let t of tasks | filter : searchText"
+    [task]="t"
+    (dblclick)="delete(t)"
+  ></app-actual-task>
+  <p class="text-center">Count: {{ tasks.length }}</p>
+</ng-template>
+
+<h2>New task:</h2>
+<div class="create_form">
+  <label>Topic:</label>
+  <input [(ngModel)]="inputTask.name" type="text" />
+  <label>Priority (important):</label>
+  <input [(ngModel)]="inputTask.priority" type="checkbox" />
+  <label>Deadline:</label>
+  <input [(ngModel)]="inputTask.deadline" type="date" />
+  <button (click)="createTask()">Create</button>
+</div>

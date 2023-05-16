@@ -1,12 +1,21 @@
 <ul>
   <li [class.task_comlete]="task.status">
-    <input type="checkbox" name="status" [checked]="task.status" />
-    <span *ngIf="!task.priority"></span>
-    <span *ngIf="task.priority"><span class="priority">&#10149;</span></span>
-    <span *ngIf="!task.status"> {{ task.name }} </span>
-    <span *ngIf="task.status"
-      ><del> {{ task.name }} </del></span
-    >
-    <span class="deadline"> {{ task.deadline | date : "shortDate" }}</span>
+    <div>
+      <input
+        type="checkbox"
+        name="status"
+        [checked]="task.status"
+        (click)="onCheckboxClick($event)"
+      />
+      <span *ngIf="!task.status"> {{ task.name }} </span>
+      <span *ngIf="task.status"
+        ><del> {{ task.name }} </del></span
+      >
+      <span *ngIf="!task.priority"></span>
+      <span *ngIf="task.priority"><span class="priority">&#10149;</span></span>
+
+      <span class="deadline"> {{ task.deadline | date : "shortDate" }}</span>
+    </div>
+    <button class="Delete_btn">Delete</button>
   </li>
 </ul>

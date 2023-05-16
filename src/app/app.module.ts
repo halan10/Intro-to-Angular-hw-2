@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ActualTaskComponent } from './actual-task/actual-task.component';
 import { TaskListComponent } from './task-list/task-list.component';
+import { FormsModule } from '@angular/forms';
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -12,7 +15,9 @@ import { TaskListComponent } from './task-list/task-list.component';
     TaskListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

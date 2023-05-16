@@ -3,7 +3,7 @@ body {
 }
 
 div {
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   padding-left: 0;
 }
@@ -23,7 +23,11 @@ ul {
   list-style-type: none;
   background-color: rgb(212, 211, 211);
 }
-
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .priority {
   color: red;
 }
@@ -33,4 +37,7 @@ ul {
 }
 .task_comlete {
   background-color: rgb(167, 167, 167);
+}
+.Delete_btn {
+  background-color: rgb(241, 104, 104);
 }
